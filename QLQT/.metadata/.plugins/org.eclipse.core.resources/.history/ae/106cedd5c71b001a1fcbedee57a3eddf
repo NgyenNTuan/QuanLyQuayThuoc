@@ -1,0 +1,17 @@
+package class_Starting;
+
+import class_GUI.DangNhap_GUI;
+import class_GUI.QuanLiQuayThuoc_QL_GUI;
+
+public class Starting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		DangNhap_GUI dn = new DangNhap_GUI();
+//		dn.setVisible(true);
+		String ma = "NV111";
+		QuanLiQuayThuoc_QL_GUI ql= new QuanLiQuayThuoc_QL_GUI(ma);
+		ql.setVisible(true);
+	}
+
+}

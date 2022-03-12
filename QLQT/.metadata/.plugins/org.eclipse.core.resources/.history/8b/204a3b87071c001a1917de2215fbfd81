@@ -1,0 +1,859 @@
+package class_GUI;
+
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
+import javax.swing.JLabel;
+import java.awt.SystemColor;
+import java.awt.Font;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JSeparator;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.awt.event.InputEvent;
+import java.awt.Toolkit;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import javax.swing.Box;
+import javax.swing.SwingConstants;
+import java.awt.FlowLayout;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class QuanLiQuayThuoc_QL_GUI extends JFrame {
+	
+	/**
+	 * Create the frame.
+	 */
+	public QuanLiQuayThuoc_QL_GUI(String signing) {
+		
+		getContentPane().setBackground(Color.WHITE);
+		setBackground(Color.WHITE);
+		
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/about.png")));
+		//menuBar
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorderPainted(false);
+		menuBar.setForeground(Color.RED);
+		menuBar.setBackground(new Color(176, 224, 230));
+        setJMenuBar(menuBar);
+        
+        JLabel label = new JLabel("");
+        label.setIcon(new ImageIcon(getClass().getResource("/system.png")));
+        label.setForeground(SystemColor.textHighlight);
+        menuBar.add(label);
+        
+        JMenu menu = new JMenu("H\u1EC7 Th\u1ED1ng");
+        menu.setForeground(SystemColor.textHighlight);
+        menu.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.setBackground(SystemColor.textHighlight);
+        menuBar.add(menu);
+        
+        JMenuItem menuItem = new JMenuItem("Nh\u00E2n Vi\u00EAn");
+        menuItem.setIcon(new ImageIcon(getClass().getResource("/employee2.png")));
+        menuItem.setFont(new Font("Arial", Font.PLAIN, 12));
+        menuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				NhanVien_GUI nv = new NhanVien_GUI();
+				nv.setVisible(true);
+			}
+		});
+        menu.add(menuItem);
+        
+        JMenuItem menuItem_1 = new JMenuItem("T\u00E0i Kho\u1EA3n");
+        menuItem_1.setIcon(new ImageIcon(getClass().getResource("/account.png")));
+        menuItem_1.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_1);
+        
+        JMenuItem menuItem_2 = new JMenuItem("Ph\u00E2n Quy\u1EC1n");
+        menuItem_2.setIcon(new ImageIcon(getClass().getResource("/phanquyen.png")));
+        menuItem_2.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_2);
+        
+        JSeparator separator = new JSeparator();
+        menu.add(separator);
+        
+        JMenuItem menuItem_3 = new JMenuItem("\u0110\u0103ng Nh\u1EADp");
+        menuItem_3.setIcon(new ImageIcon(getClass().getResource("/login.png")));
+        menuItem_3.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_3);
+        
+        JMenuItem menuItem_4 = new JMenuItem("\u0110\u1ED5i M\u1EADt Kh\u1EA9u");
+        menuItem_4.setIcon(new ImageIcon(getClass().getResource("/changekey.png")));
+        menuItem_4.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_4);
+        
+        JMenuItem menuItem_5 = new JMenuItem("\u0110\u0103ng Xu\u1EA5t");
+        menuItem_5.setIcon(new ImageIcon(getClass().getResource("/logout.png")));
+        menuItem_5.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_5);
+        
+        JSeparator separator_1 = new JSeparator();
+        menu.add(separator_1);
+        
+        JMenuItem menuItem_6 = new JMenuItem("Giao Ca");
+        menuItem_6.setIcon(new ImageIcon(getClass().getResource("/changeca.png")));
+        menuItem_6.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_6);
+        
+        JSeparator separator_2 = new JSeparator();
+        menu.add(separator_2);
+        
+        JMenuItem menuItem_7 = new JMenuItem("C\u00E0i \u0110\u1EB7t");
+        menuItem_7.setIcon(new ImageIcon(getClass().getResource("/setting.png")));
+        menuItem_7.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_7);
+        
+        JMenuItem menuItem_8 = new JMenuItem("Sao L\u01B0u D\u1EEF Li\u1EC7u");
+        menuItem_8.setIcon(new ImageIcon(getClass().getResource("/backup.png")));
+        menuItem_8.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_8);
+        
+        JMenuItem menuItem_9 = new JMenuItem("Ph\u1EE5c H\u1ED3i D\u1EEF Li\u1EC7u");
+        menuItem_9.setIcon(new ImageIcon(getClass().getResource("/restore.png")));
+        menuItem_9.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_9);
+        
+        JMenuItem menuItem_10 = new JMenuItem("Gi\u1EDBi Thi\u1EC7u");
+        menuItem_10.setIcon(new ImageIcon(getClass().getResource("/about.png")));
+        menuItem_10.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_10);
+        
+        JMenuItem menuItem_11 = new JMenuItem("Tho\u00E1t");
+        menuItem_11.setIcon(new ImageIcon(getClass().getResource("/exit.png")));
+        menuItem_11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_MASK));
+        menuItem_11.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu.add(menuItem_11);
+        
+        JMenu menu_1 = new JMenu("H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        menu_1.setBackground(Color.WHITE);
+        menu_1.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu_1.setEnabled(false);
+        menuBar.add(menu_1);
+        
+        JMenuItem menuItem_12 = new JMenuItem("T\u1EA1o H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        menuItem_12.setBackground(Color.WHITE);
+        menuItem_12.setIcon(new ImageIcon(getClass().getResource("/add.png")));
+        menuItem_12.setFont(new Font("Arial", Font.PLAIN, 12));
+        menuItem_12.setEnabled(false);
+        menu_1.add(menuItem_12);
+        
+        JMenuItem menuItem_13 = new JMenuItem("T\u00ECm Ki\u1EBFm H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        menuItem_13.setIcon(new ImageIcon(getClass().getResource("/search.png")));
+        menuItem_13.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu_1.add(menuItem_13);
+        
+        JMenuItem menuItem_14 = new JMenuItem("T\u00ECm S\u1EA3n Ph\u1EA9m \u0110\u00E3 Nh\u1EADp");
+        menuItem_14.setIcon(new ImageIcon(getClass().getResource("/search1.png")));
+        menuItem_14.setFont(new Font("Arial", Font.PLAIN, 12));
+        menu_1.add(menuItem_14);
+        
+        JMenu menu_2 = new JMenu("H\u00F3a \u0110\u01A1n Xu\u1EA5t");
+        menu_2.setFont(new Font("Arial", Font.PLAIN, 12));
+        menuBar.add(menu_2);
+        
+        JMenuItem mntmNewMenuItem = new JMenuItem("B\u00E1n H\u00E0ng");
+        mntmNewMenuItem.setFont(new Font("Arial", Font.PLAIN, 12));
+        mntmNewMenuItem.setIcon(new ImageIcon(getClass().getResource("/sale1.png")));
+        mntmNewMenuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				HoaDon_ADD_GUI hdadd = new HoaDon_ADD_GUI();
+				hdadd.setVisible(true);
+			}
+		});
+        menu_2.add(mntmNewMenuItem);
+        
+        JMenuItem mntmNewMenuItem_1 = new JMenuItem("T\u00ECm H\u00F3a \u0110\u01A1n B\u00E1n H\u00E0ng");
+        mntmNewMenuItem_1.setFont(new Font("Arial", Font.PLAIN, 12));
+        mntmNewMenuItem_1.setIcon(new ImageIcon(getClass().getResource("/searchsale1.png")));
+        mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				HoaDon_GUI hd = new HoaDon_GUI();
+				hd.setVisible(true);
+			}
+		});
+        menu_2.add(mntmNewMenuItem_1);
+        
+        JMenu mnSnPhm = new JMenu("S\u1EA3n Ph\u1EA9m");
+        mnSnPhm.setFont(new Font("Arial", Font.PLAIN, 12));
+        menuBar.add(mnSnPhm);
+        
+        JMenuItem mntmNewMenuItem_2 = new JMenuItem("T\u00ECm Ki\u1EBFm S\u1EA3n Ph\u1EA9m");
+        mntmNewMenuItem_2.setIcon(new ImageIcon(getClass().getResource("/search.png")));
+        mntmNewMenuItem_2.setFont(new Font("Arial", Font.PLAIN, 12));
+        mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Thuoc_GUI th = new Thuoc_GUI();
+				th.setVisible(true);
+			}
+		});
+        mnSnPhm.add(mntmNewMenuItem_2);
+        
+        JMenuItem mntmNewMenuItem_3 = new JMenuItem("Th\u00EAm S\u1EA3n Ph\u1EA9m M\u1EDBi");
+        mntmNewMenuItem_3.setIcon(new ImageIcon(getClass().getResource("/add.png")));
+        mntmNewMenuItem_3.setFont(new Font("Arial", Font.PLAIN, 12));
+        mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Thuoc_ADD_GUI thadd = new Thuoc_ADD_GUI();
+				thadd.setVisible(true);
+			}
+		});
+        mnSnPhm.add(mntmNewMenuItem_3);
+        
+        JMenu mnNewMenu = new JMenu("Kh\u00E1ch H\u00E0ng");
+        mnNewMenu.setFont(new Font("Arial", Font.PLAIN, 12));
+        menuBar.add(mnNewMenu);
+        
+        JMenuItem mntmNewMenuItem_4 = new JMenuItem("Qu\u1EA3n L\u00ED Kh\u00E1ch H\u00E0ng");
+        mntmNewMenuItem_4.setFont(new Font("Arial", Font.PLAIN, 12));
+        mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				KhachHang_GUI kh = new KhachHang_GUI();
+				kh.setVisible(true);
+			}
+		});
+        mnNewMenu.add(mntmNewMenuItem_4);
+        
+        JMenuItem mntmNewMenuItem_5 = new JMenuItem("Th\u00E0nh Vi\u00EAn");
+        mntmNewMenuItem_5.setFont(new Font("Arial", Font.PLAIN, 12));
+        mnNewMenu.add(mntmNewMenuItem_5);
+        
+        JMenu mnNewMenu_1 = new JMenu("Danh M\u1EE5c");
+        mnNewMenu_1.setFont(new Font("Arial", Font.PLAIN, 12));
+        menuBar.add(mnNewMenu_1);
+        
+        JMenuItem mntmNewMenuItem_8 = new JMenuItem("Nhà Sản Xuât");
+        mntmNewMenuItem_8.setFont(new Font("Arial", Font.PLAIN, 12));
+        mnNewMenu_1.add(mntmNewMenuItem_8);
+        
+        JSeparator separator_5 = new JSeparator();
+        mnNewMenu_1.add(separator_5);
+        
+        JMenuItem mntmNewMenuItem_9 = new JMenuItem("\u0110\u01A1n V\u1ECB T\u00EDnh");
+        mntmNewMenuItem_9.setFont(new Font("Arial", Font.PLAIN, 12));
+        mntmNewMenuItem_9.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				DonViTinh_GUI dvt = new DonViTinh_GUI();
+				dvt.setVisible(true);
+			}
+		});
+        mnNewMenu_1.add(mntmNewMenuItem_9);
+        
+        JMenuItem mntmNewMenuItem_10 = new JMenuItem("\u0110\u01A1n V\u1ECB Quy \u0110\u1ED5i");
+        mntmNewMenuItem_10.setFont(new Font("Arial", Font.PLAIN, 12));
+        mnNewMenu_1.add(mntmNewMenuItem_10);
+        
+        JMenu mnNewMenu_2 = new JMenu("B\u00E1o C\u00E1o");
+        mnNewMenu_2.setFont(new Font("Arial", Font.PLAIN, 12));
+        menuBar.add(mnNewMenu_2);
+        
+        JMenuItem mntmThngKDoanh = new JMenuItem("Th\u1ED1ng K\u00EA Doanh Thu");
+        mntmThngKDoanh.setFont(new Font("Arial", Font.PLAIN, 12));
+        mntmThngKDoanh.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ThongKeDoanhThu_GUI dtG = new ThongKeDoanhThu_GUI();
+				dtG.setVisible(true);
+			}
+		});
+        mnNewMenu_2.add(mntmThngKDoanh);
+        
+        JMenuItem mnTK = new JMenuItem("Thống Kê Thuốc");
+        mnTK.setFont(new Font("Arial", Font.PLAIN, 12));
+        mnTK.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ThongKeThuocDuocBanNhieuNhat_GUI tbG = new ThongKeThuocDuocBanNhieuNhat_GUI();
+				tbG.setVisible(true);
+			}
+		});
+        mnNewMenu_2.add(mnTK);
+        
+        //toolBar
+        JToolBar toolbar = new JToolBar();
+        toolbar.setBackground(Color.WHITE);
+        toolbar.setForeground(Color.WHITE);
+        JButton btnHDN1 =new JButton();
+        btnHDN1.disable();
+        btnHDN1.setBackground(Color.WHITE);
+        btnHDN1.setFont(new Font("Arial", Font.PLAIN, 13));
+        btnHDN1.setToolTipText("H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        btnHDN1.setText("H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        btnHDN1.setIcon(new ImageIcon(getClass().getResource("/add2.png")));
+        btnHDN1.setFocusable(false);
+        btnHDN1.setBorder(new LineBorder(Color.white));
+        toolbar.add(btnHDN1);
+        getContentPane().add(toolbar, BorderLayout.NORTH);
+        
+        JLabel lblNewLabel_1 = new JLabel("    ");
+        toolbar.add(lblNewLabel_1);
+        
+        JButton btnBH1 = new JButton("B\u00E1n H\u00E0ng");
+        btnBH1.setBackground(Color.WHITE);
+        btnBH1.setFont(new Font("Arial", Font.PLAIN, 13));
+        btnBH1.setIcon(new ImageIcon(getClass().getResource("/sale2.png")));
+        btnBH1.setToolTipText("B\u00E1n H\u00E0ng");
+        btnBH1.setFocusable(false);
+        btnBH1.setBorder(new LineBorder(Color.white));
+        btnBH1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				HoaDon_ADD_GUI hdadd = new HoaDon_ADD_GUI();
+				hdadd.setVisible(true);
+			}
+		});
+        toolbar.add(btnBH1);
+        
+        JLabel label_1 = new JLabel("  ");
+        toolbar.add(label_1);
+        JLabel label_2 = new JLabel("    ");
+        toolbar.add(label_2);
+        
+        JButton btnSearchHDN1 = new JButton("T\u00ECm H\u00F3a \u0110\u01A1n B\u00E1n H\u00E0ng");
+        btnSearchHDN1.setBackground(Color.WHITE);
+        btnSearchHDN1.setIcon(new ImageIcon(getClass().getResource("/searchsale2.png")));
+        btnSearchHDN1.setToolTipText("T\u00ECm H\u00F3a \u0110\u01A1n B\u00E1n H\u00E0ng");
+        btnSearchHDN1.setFont(new Font("Arial", Font.PLAIN, 13));
+        btnSearchHDN1.setFocusable(false);
+        btnSearchHDN1.setBorder(new LineBorder(Color.white));
+        btnSearchHDN1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				HoaDon_GUI hd = new HoaDon_GUI();
+				hd.setVisible(true);
+			}
+		});
+        toolbar.add(btnSearchHDN1);
+        
+        JLabel label_3 = new JLabel("  ");
+        toolbar.add(label_3);
+        
+        JButton btnSearchSP1 = new JButton("T\u00ECm S\u1EA3n Ph\u1EA9m");
+        btnSearchSP1.setBackground(Color.WHITE);
+        btnSearchSP1.setToolTipText("");
+        btnSearchSP1.setIcon(new ImageIcon(getClass().getResource("/searchproduct.png")));
+        btnSearchSP1.setFont(new Font("Arial", Font.PLAIN, 13));
+        btnSearchSP1.setFocusable(false);
+        btnSearchSP1.setBorder(new LineBorder(Color.white));
+        btnSearchSP1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Thuoc_GUI th = new Thuoc_GUI();
+				th.setVisible(true);
+			}
+		});
+        toolbar.add(btnSearchSP1);
+        
+        Component horizontalGlue = Box.createHorizontalGlue();
+        toolbar.add(horizontalGlue);
+        
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/logo3.png")));
+        toolbar.add(lblNewLabel);
+        
+        Box horizontalBox = Box.createHorizontalBox();
+        horizontalBox.setBorder(null);
+        horizontalBox.setBackground(Color.WHITE);
+        getContentPane().add(horizontalBox, BorderLayout.SOUTH);
+        
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.WHITE);
+        FlowLayout flowLayout = (FlowLayout) panel.getLayout();
+        flowLayout.setVgap(12);
+        flowLayout.setHgap(10);
+        horizontalBox.add(panel);
+        
+        JButton btnNV = new JButton("Nh\u00E2n Vi\u00EAn");
+        btnNV.setToolTipText("Nh\u00E2n Vi\u00EAn");
+        btnNV.setIcon(new ImageIcon(getClass().getResource("/employee1.png")));
+        btnNV.setFocusable(false);
+        btnNV.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				NhanVien_GUI nv = new NhanVien_GUI();
+				nv.setVisible(true);
+			}
+		});
+        panel.add(btnNV);
+        
+        JButton btnTK = new JButton("T\u00E0i Kho\u1EA3n");
+        btnTK.setToolTipText("T\u00E0i Kho\u1EA3n");
+        btnTK.setIcon(new ImageIcon(getClass().getResource("/account.png")));
+        btnTK.setFocusable(false);
+        panel.add(btnTK);
+        
+        JButton btnPQuyen = new JButton("Ph\u00E2n Quy\u1EC1n");
+        btnPQuyen.setIcon(new ImageIcon(getClass().getResource("/phanquyen.png")));
+        btnPQuyen.setToolTipText("Ph\u00E2n Quy\u1EC1n");
+        btnPQuyen.setFocusable(false);
+        panel.add(btnPQuyen);
+        
+        Component horizontalStrut_1 = Box.createHorizontalStrut(20);
+        panel.add(horizontalStrut_1);
+        
+        Component horizontalStrut_2 = Box.createHorizontalStrut(20);
+        panel.add(horizontalStrut_2);
+        
+        Component horizontalGlue_1 = Box.createHorizontalGlue();
+        horizontalBox.add(horizontalGlue_1);
+        
+        JPanel panel_1 = new JPanel();
+        panel_1.setBackground(Color.WHITE);
+        FlowLayout flowLayout_1 = (FlowLayout) panel_1.getLayout();
+        flowLayout_1.setVgap(12);
+        flowLayout_1.setHgap(10);
+        horizontalBox.add(panel_1);
+        
+        Component horizontalStrut_3 = Box.createHorizontalStrut(20);
+        panel_1.add(horizontalStrut_3);
+        
+        Component horizontalStrut = Box.createHorizontalStrut(20);
+        panel_1.add(horizontalStrut);
+        
+        JButton btnSetting = new JButton("Help");
+        btnSetting.setIcon(new ImageIcon(getClass().getResource("/setting.png")));
+        btnSetting.setToolTipText("");
+        btnSetting.setFocusable(false);
+        btnSetting.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				try
+		        {
+		            String path = new File("").getAbsolutePath() + "\\data\\Help\\Help.chm";
+		            File file = new File(path);
+		            
+		            if(file.exists())
+		            {
+		                Runtime.getRuntime().exec("rundll32 url.dll, FileProtocolHandler " + path);
+		            }
+		            else
+		            {
+		                throw new Exception("File \"Help.chm\" not found!");
+		            }
+		        }
+		        catch(Exception ex)
+		        {
+		            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "Notice", JOptionPane.OK_OPTION);
+		        }
+			}
+		});
+        panel_1.add(btnSetting);
+        
+        JButton btnDangXuat = new JButton("\u0110\u0103ng Xu\u1EA5t");
+        btnDangXuat.setIcon(new ImageIcon(getClass().getResource("/logout.png")));
+        btnDangXuat.setToolTipText("\u0110\u0103ng Xu\u1EA5t");
+        btnDangXuat.setFocusable(false);
+        btnDangXuat.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				DangNhap_GUI dn = new DangNhap_GUI();
+				dn.setVisible(true);
+				dispose();
+			}
+		});
+        panel_1.add(btnDangXuat);
+        
+        JButton btnExit = new JButton("Tho\u00E1t");
+        btnExit.setIcon(new ImageIcon(getClass().getResource("/exit.png")));
+        btnExit.setToolTipText("Tho\u00E1t");
+        btnExit.setFocusable(false);
+        btnExit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.exit(0);
+			}
+		});
+        panel_1.add(btnExit);
+        
+        JPanel panel_2 = new JPanel();
+        panel_2.setBorder(new MatteBorder(0, 0, 1, 0, SystemColor.controlShadow));
+        panel_2.setBackground(Color.WHITE);
+        getContentPane().add(panel_2, BorderLayout.CENTER);
+        panel_2.setLayout(null);
+        
+        JLabel lblDanhMc = new JLabel("Danh M\u1EE5c:");
+        lblDanhMc.setToolTipText("Danh M\u1EE5c");
+        lblDanhMc.setFont(new Font("Arial", Font.BOLD, 13));
+        lblDanhMc.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblDanhMc.setBounds(84, 53, 123, 27);
+        panel_2.add(lblDanhMc);
+        
+        JButton btnDVT = new JButton("\u0110\u01A1n V\u1ECB T\u00EDnh");
+        btnDVT.setBackground(Color.WHITE);
+        btnDVT.setIcon(new ImageIcon(getClass().getResource("/calculating.png")));
+        btnDVT.setToolTipText("\u0110\u01A1n V\u1ECB T\u00EDnh");
+        btnDVT.setHorizontalAlignment(SwingConstants.LEFT);
+        btnDVT.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnDVT.setBounds(409, 27, 182, 34);
+        btnDVT.setFocusable(false);
+        btnDVT.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				DonViTinh_GUI dvt = new DonViTinh_GUI();
+				dvt.setVisible(true);
+			}
+		});
+        panel_2.add(btnDVT);
+        
+        JButton btnDVQD = new JButton("\u0110\u01A1n V\u1ECB Quy \u0110\u1ED5i");
+        btnDVQD.setBackground(Color.WHITE);
+        btnDVQD.setIcon(new ImageIcon(getClass().getResource("/donvidoi.png")));
+        btnDVQD.setToolTipText("\u0110\u01A1n V\u1ECB Quy \u0110\u1ED5i");
+        btnDVQD.setHorizontalAlignment(SwingConstants.LEFT);
+        btnDVQD.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnDVQD.setBounds(601, 27, 182, 34);
+        btnDVQD.setFocusable(false);
+        panel_2.add(btnDVQD);
+        
+        JLabel lblSan = new JLabel("S\u1EA3n Ph\u1EA9m:");
+        lblSan.setToolTipText("S\u1EA3n Ph\u1EA9m");
+        lblSan.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblSan.setFont(new Font("Arial", Font.BOLD, 13));
+        lblSan.setBounds(84, 112, 123, 27);
+        panel_2.add(lblSan);
+        
+        JButton btnAddSP = new JButton("Th\u00EAm S\u1EA3n Ph\u1EA9m");
+        btnAddSP.setHorizontalAlignment(SwingConstants.LEFT);
+        btnAddSP.setIcon(new ImageIcon(getClass().getResource("/add1.png")));
+        btnAddSP.setToolTipText("Th\u00EAm S\u1EA3n Ph\u1EA9m");
+        btnAddSP.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnAddSP.setBackground(Color.WHITE);
+        btnAddSP.setBounds(217, 112, 182, 34);
+        btnAddSP.setFocusable(false);
+        btnAddSP.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Thuoc_ADD_GUI thadd = new Thuoc_ADD_GUI();
+				thadd.setVisible(true);
+			}
+		});
+        panel_2.add(btnAddSP);
+        
+        JButton btnSearchSP2 = new JButton("T\u00ECm S\u1EA3n Ph\u1EA9m");
+        btnSearchSP2.setBackground(Color.WHITE);
+        btnSearchSP2.setHorizontalAlignment(SwingConstants.LEFT);
+        btnSearchSP2.setIcon(new ImageIcon(getClass().getResource("/search2.png")));
+        btnSearchSP2.setToolTipText("T\u00ECm S\u1EA3n Ph\u1EA9m");
+        btnSearchSP2.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnSearchSP2.setBounds(409, 112, 182, 34);
+        btnSearchSP2.setFocusable(false);
+        btnSearchSP2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Thuoc_GUI th = new Thuoc_GUI();
+				th.setVisible(true);
+			}
+		});
+        panel_2.add(btnSearchSP2);
+        
+        JLabel lblNhCungCp = new JLabel("Nh\u00E0 Cung C\u1EA5p:");
+        lblNhCungCp.setToolTipText("Nh\u00E0 Cung C\u1EA5p");
+        lblNhCungCp.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblNhCungCp.setFont(new Font("Arial", Font.BOLD, 13));
+        lblNhCungCp.setBounds(84, 161, 123, 27);
+        panel_2.add(lblNhCungCp);
+        
+        JButton btnAddNCC = new JButton("Th\u00EAm Nh\u00E0 Cung C\u1EA5p");
+        btnAddNCC.setIcon(new ImageIcon(getClass().getResource("/add1.png")));
+        btnAddNCC.setHorizontalAlignment(SwingConstants.LEFT);
+        btnAddNCC.setToolTipText("Th\u00EAm Nh\u00E0 Cung C\u1EA5p");
+        btnAddNCC.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnAddNCC.setBackground(Color.WHITE);
+        btnAddNCC.setBounds(217, 157, 182, 34);
+        btnAddNCC.setFocusable(false);
+        panel_2.add(btnAddNCC);
+        
+        JButton btnSearchNCC = new JButton("T\u00ECm Nh\u00E0 Cung C\u1EA5p");
+        btnSearchNCC.setBackground(Color.WHITE);
+        btnSearchNCC.setHorizontalAlignment(SwingConstants.LEFT);
+        btnSearchNCC.setIcon(new ImageIcon(getClass().getResource("/searchncc.png")));
+        btnSearchNCC.setToolTipText("T\u00ECm Nh\u00E0 Cung C\u1EA5p");
+        btnSearchNCC.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnSearchNCC.setBounds(409, 157, 182, 34);
+        btnSearchNCC.setFocusable(false);
+        panel_2.add(btnSearchNCC);
+        
+        JLabel lblHanNhp = new JLabel("H\u00F3a \u0110\u01A1n Nh\u1EADp:");
+        lblHanNhp.setToolTipText("H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        lblHanNhp.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblHanNhp.setFont(new Font("Arial", Font.BOLD, 13));
+        lblHanNhp.setBounds(84, 206, 123, 27);
+        panel_2.add(lblHanNhp);
+        
+        JButton btnHDN2 = new JButton("T\u1EA1o H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        btnHDN2.setEnabled(false);
+        btnHDN2.setHorizontalAlignment(SwingConstants.LEFT);
+        btnHDN2.setIcon(new ImageIcon(getClass().getResource("/hoadonnhap.png")));
+        btnHDN2.setToolTipText("T\u1EA1o H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        btnHDN2.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnHDN2.setBackground(Color.WHITE);
+        btnHDN2.setBounds(217, 202, 182, 34);
+        btnHDN2.setFocusable(false);
+        panel_2.add(btnHDN2);
+        
+        JButton btnSeachHDN = new JButton("T\u00ECm H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        btnSeachHDN.setEnabled(false);
+        btnSeachHDN.setBackground(Color.WHITE);
+        btnSeachHDN.setIcon(new ImageIcon(getClass().getResource("/search2.png")));
+        btnSeachHDN.setHorizontalAlignment(SwingConstants.LEFT);
+        btnSeachHDN.setToolTipText("T\u00ECm H\u00F3a \u0110\u01A1n Nh\u1EADp");
+        btnSeachHDN.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnSeachHDN.setBounds(409, 202, 182, 34);
+        btnSeachHDN.setFocusable(false);
+        panel_2.add(btnSeachHDN);
+        
+        JButton btnSearchHDNtSP = new JButton("T\u00ECm Theo S\u1EA3n Ph\u1EA9m");
+        btnSearchHDNtSP.setEnabled(false);
+        btnSearchHDNtSP.setBackground(Color.WHITE);
+        btnSearchHDNtSP.setHorizontalAlignment(SwingConstants.LEFT);
+        btnSearchHDNtSP.setIcon(new ImageIcon(getClass().getResource("/search3.png")));
+        btnSearchHDNtSP.setToolTipText("T\u00ECm Theo S\u1EA3n Ph\u1EA9m");
+        btnSearchHDNtSP.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnSearchHDNtSP.setBounds(601, 202, 182, 34);
+        btnSearchHDNtSP.setFocusable(false);
+        panel_2.add(btnSearchHDNtSP);
+        
+        JLabel lblHanXut = new JLabel("H\u00F3a \u0110\u01A1n Xu\u1EA5t:");
+        lblHanXut.setToolTipText("H\u00F3a \u0110\u01A1n Xu\u1EA5t");
+        lblHanXut.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblHanXut.setFont(new Font("Arial", Font.BOLD, 13));
+        lblHanXut.setBounds(84, 251, 123, 27);
+        panel_2.add(lblHanXut);
+        
+        JButton btnBH = new JButton("B\u00E1n H\u00E0ng");
+        btnBH.setHorizontalAlignment(SwingConstants.LEFT);
+        btnBH.setIcon(new ImageIcon(getClass().getResource("/sale2.png")));
+        btnBH.setToolTipText("B\u00E1n H\u00E0ng");
+        btnBH.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnBH.setBackground(Color.WHITE);
+        btnBH.setBounds(217, 247, 182, 34);
+        btnBH.setFocusable(false);
+        btnBH.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				HoaDon_ADD_GUI hdadd = new HoaDon_ADD_GUI();
+				hdadd.setVisible(true);
+			}
+		});
+        panel_2.add(btnBH);
+        
+        JButton btnSearchHDX = new JButton("T\u00ECm H\u00F3a \u0110\u01A1n Xu\u1EA5t");
+        btnSearchHDX.setBackground(Color.WHITE);
+        btnSearchHDX.setIcon(new ImageIcon(getClass().getResource("/searchsale2.png")));
+        btnSearchHDX.setToolTipText("T\u00ECm H\u00F3a \u0110\u01A1n Xu\u1EA5t");
+        btnSearchHDX.setHorizontalAlignment(SwingConstants.LEFT);
+        btnSearchHDX.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnSearchHDX.setBounds(409, 247, 182, 34);
+        btnSearchHDX.setFocusable(false);
+        btnSearchHDX.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				HoaDon_GUI hd = new HoaDon_GUI();
+				hd.setVisible(true);
+			}
+		});
+        panel_2.add(btnSearchHDX);
+        
+        JLabel lblKhchHng = new JLabel("Kh\u00E1ch H\u00E0ng:");
+        lblKhchHng.setToolTipText("Kh\u00E1ch H\u00E0ng");
+        lblKhchHng.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblKhchHng.setFont(new Font("Arial", Font.BOLD, 13));
+        lblKhchHng.setBounds(84, 296, 123, 27);
+        panel_2.add(lblKhchHng);
+        
+        JButton btnAddKH = new JButton("Th\u00EAm Kh\u00E1ch H\u00E0ng");
+        btnAddKH.setHorizontalAlignment(SwingConstants.LEFT);
+        btnAddKH.setIcon(new ImageIcon(getClass().getResource("/add1.png")));
+        btnAddKH.setToolTipText("Th\u00EAm Kh\u00E1ch H\u00E0ng");
+        btnAddKH.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnAddKH.setBackground(Color.WHITE);
+        btnAddKH.setBounds(217, 292, 182, 34);
+        btnAddKH.setFocusable(false);
+        btnAddKH.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				KhachHang_ADD_GUI khadd = new KhachHang_ADD_GUI();
+				khadd.setVisible(true);
+			}
+		});
+        panel_2.add(btnAddKH);
+        
+        JButton btnQLKH = new JButton("Qu\u1EA3n L\u00ED Kh\u00E1ch H\u00E0ng");
+        btnQLKH.setBackground(Color.WHITE);
+        btnQLKH.setIcon(new ImageIcon(getClass().getResource("/employee.png")));
+        btnQLKH.setHorizontalAlignment(SwingConstants.LEFT);
+        btnQLKH.setToolTipText("Qu\u1EA3n L\u00ED Kh\u00E1ch H\u00E0ng");
+        btnQLKH.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnQLKH.setFocusable(false);
+        btnQLKH.setBounds(409, 292, 182, 34);
+        btnQLKH.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				KhachHang_GUI kh = new KhachHang_GUI();
+				kh.setVisible(true);
+			}
+		});
+        panel_2.add(btnQLKH);
+        
+        JButton btnTheTV = new JButton("Th\u1EBB Th\u00E0nh Vi\u00EAn");
+        btnTheTV.setEnabled(false);
+        btnTheTV.setBackground(Color.WHITE);
+        btnTheTV.setHorizontalAlignment(SwingConstants.LEFT);
+        btnTheTV.setIcon(new ImageIcon(getClass().getResource("/card.png")));
+        btnTheTV.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnTheTV.setBounds(601, 292, 182, 34);
+        btnTheTV.setFocusable(false);
+        panel_2.add(btnTheTV);
+        
+        JLabel lblQunL = new JLabel("B\u00E1o C\u00E1o:");
+        lblQunL.setToolTipText("B\u00E1o C\u00E1o");
+        lblQunL.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblQunL.setFont(new Font("Arial", Font.BOLD, 13));
+        lblQunL.setBounds(84, 431, 123, 27);
+        panel_2.add(lblQunL);
+        
+        JButton btnAddBC = new JButton("T\u1EA1o B\u00E1o C\u00E1o");
+        btnAddBC.setEnabled(false);
+        btnAddBC.setHorizontalAlignment(SwingConstants.LEFT);
+        btnAddBC.setIcon(new ImageIcon(getClass().getResource("/add1.png")));
+        btnAddBC.setToolTipText("T\u1EA1o B\u00E1o C\u00E1o");
+        btnAddBC.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnAddBC.setBackground(Color.WHITE);
+        btnAddBC.setBounds(217, 427, 182, 34);
+        btnAddBC.setFocusable(false);
+        btnAddBC.disable();
+        panel_2.add(btnAddBC);
+        
+        JButton btnXemBC = new JButton("Xem B\u00E1o C\u00E1o");
+        btnXemBC.setEnabled(false);
+        btnXemBC.setHorizontalAlignment(SwingConstants.LEFT);
+        btnXemBC.setIcon(new ImageIcon(getClass().getResource("/searchsale2.png")));
+        btnXemBC.setBackground(Color.WHITE);
+        btnXemBC.setToolTipText("Xem B\u00E1o C\u00E1o");
+        btnXemBC.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnXemBC.setBounds(409, 427, 182, 34);
+        btnXemBC.setFocusable(false);
+        btnXemBC.disable();
+        panel_2.add(btnXemBC);
+        
+        JButton btnNgH = new JButton("Ng\u00E0nh H\u00E0ng");
+        btnNgH.setIcon(new ImageIcon(getClass().getResource("/ngj.png")));
+        btnNgH.setToolTipText("");
+        btnNgH.setHorizontalAlignment(SwingConstants.LEFT);
+        btnNgH.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnNgH.setFocusable(false);
+        btnNgH.setBackground(Color.WHITE);
+        btnNgH.setBounds(217, 69, 182, 34);
+        btnNgH.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				LoaiThuoc_GUI lt = new LoaiThuoc_GUI();
+				lt.setVisible(true);
+			}
+		});
+        panel_2.add(btnNgH);
+        
+        JButton btnDieuKienBQ = new JButton("\u0110i\u1EC1u Ki\u1EC7n B\u1EA3o Qu\u1EA3n");
+        btnDieuKienBQ.setIcon(new ImageIcon(getClass().getResource("/dkbq.png")));
+        btnDieuKienBQ.setToolTipText("");
+        btnDieuKienBQ.setHorizontalAlignment(SwingConstants.LEFT);
+        btnDieuKienBQ.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnDieuKienBQ.setFocusable(false);
+        btnDieuKienBQ.setBackground(Color.WHITE);
+        btnDieuKienBQ.setBounds(409, 69, 182, 34);
+        panel_2.add(btnDieuKienBQ);
+        
+        JButton btnHC = new JButton("Ho\u1EA1t Ch\u1EA5t");
+        btnHC.setIcon(new ImageIcon(getClass().getResource("/hc.png")));
+        btnHC.setToolTipText("");
+        btnHC.setHorizontalAlignment(SwingConstants.LEFT);
+        btnHC.setFont(new Font("Arial", Font.PLAIN, 12));
+        btnHC.setFocusable(false);
+        btnHC.setBackground(Color.WHITE);
+        btnHC.setBounds(601, 69, 182, 34);
+        btnHC.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				HoatChat_GUI hc = new HoatChat_GUI();
+				hc.setVisible(true);
+			}
+		});
+        panel_2.add(btnHC);
+        
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		setTitle("Pharmacy Management 1.0.0");
+        setSize(1050, 650);
+        setMinimumSize(new Dimension(1050, 650));
+        setLocationRelativeTo(null);
+        
+	}
+}

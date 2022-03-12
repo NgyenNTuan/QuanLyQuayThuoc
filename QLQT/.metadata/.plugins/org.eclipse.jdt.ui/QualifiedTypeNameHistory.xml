@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.swing.JMenuItem"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.awt.FileDialog"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="java.util.logging.Level"/>
+<fullyQualifiedTypeName name="class_entity.ThongKeDoanhThu"/>
+<fullyQualifiedTypeName name="class_DAO.ThongKeDoanhThu_DAO"/>
+<fullyQualifiedTypeName name="class_entity.ThongKeThuocBanNhieuNhat"/>
+<fullyQualifiedTypeName name="class_DAO.ThongKeThuocBanNhieuNhat_DAO"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="class_ThongKeExcel.InThongKeExcel"/>
+<fullyQualifiedTypeName name="class_GUI.NhanVien_EDIT_GUI"/>
+<fullyQualifiedTypeName name="class_GUI.NhanVien_ADD_GUI"/>
+<fullyQualifiedTypeName name="class_GUI.KhachHang_EDIT_GUI"/>
+<fullyQualifiedTypeName name="class_GUI.HoatChat_EDIT_GUI"/>
+<fullyQualifiedTypeName name="class_GUI.DangNhap_GUI"/>
+<fullyQualifiedTypeName name="javax.swing.ScrollPaneConstants"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="class_entity.NhanVien"/>
+<fullyQualifiedTypeName name="class_entity.NhanVien1"/>
+<fullyQualifiedTypeName name="class_DAO.DangNhap_DAO"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="class_GUI.QuanLiQuayThuoc_QL_GUI"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="class_connectDB.ConnectDB"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="class_entity.DangNhap"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="class_GUI.ThongKeDoanhThu_GUI"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="class_GUI.ThongKeThuocDuocBanNhieuNhat_GUI"/>
+</qualifiedTypeNameHistroy>

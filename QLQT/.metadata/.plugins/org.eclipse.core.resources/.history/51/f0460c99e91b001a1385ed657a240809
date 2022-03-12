@@ -1,0 +1,58 @@
+package class_DAO;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import class_connectDB.ConnectDB;
+import class_entity.DangNhap;
+
+public class DangNhap_DAO {
+	private ArrayList<DangNhap> dstk;
+	public DangNhap_DAO() {
+		dstk = new ArrayList<DangNhap>();
+	}
+	public ArrayList<DangNhap> docTuBang() {
+		try {
+			Connection con=ConnectDB.getInstance().getConnection();
+			String sql="select * from Tai Khoan";
+			Statement stm=con.createStatement();
+			ResultSet rs=stm.executeQuery(sql);
+			while (rs.next()) {
+				String maNV=rs.getString(1);
+				String mk=rs.getString(2);
+				int quyenAD=rs.getInt(3);
+				DangNhap dn = new DangNhap(maNV, mk, quyenAD);
+				dstk.add(dn);
+				
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return dstk;
+	}
+	public ArrayList<DangNhap> getalltabledangnhap() {
+		//ArrayList<DangNhap> dstk = new ArrayList<DangNhap>();
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			String sql = "Select * from TaiKhoan";
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+
+			while (rs.next()) {
+				String maNV = rs.getString(1);
+				String Pass = rs.getString(2);
+				int quyenAdmin = rs.getInt(3);
+				DangNhap tk = new DangNhap(maNV, Pass, quyenAdmin);	
+				dstk.add(tk);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dstk;
+	}
+}

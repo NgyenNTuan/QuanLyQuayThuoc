@@ -1,0 +1,6 @@
+package class_DAO;
+
+public class ThongKeThuocBanNhieuNhat_DAO {
+	private String maThuoc,tenThuoc,tenNSX,loaiThuoc;
+	private int soLuong;
+}

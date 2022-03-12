@@ -1,0 +1,13 @@
+package class_Starting;
+
+import class_GUI.DangNhap_GUI;
+
+public class Starting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DangNhap_GUI dn = new DangNhap_GUI();
+		dn.setVisible(true);
+	}
+
+}

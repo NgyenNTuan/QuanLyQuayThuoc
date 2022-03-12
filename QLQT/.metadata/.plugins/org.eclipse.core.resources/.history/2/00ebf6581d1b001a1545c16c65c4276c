@@ -1,0 +1,9 @@
+package class_entity;
+
+import java.sql.Date;
+
+public class ThongKeDoanhThu {
+	private Date ngayLapHD;
+	private int tongSoHoaDon;
+	private float tongSoTienBan;
+}
